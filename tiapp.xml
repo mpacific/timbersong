@@ -11,10 +11,10 @@
     <id>com.mpacific.timbersong</id>
     <name>TimberSong</name>
     <version>1.0</version>
-    <publisher>mike</publisher>
+    <publisher>Mike Pacific</publisher>
     <url>http://</url>
-    <description>not specified</description>
-    <copyright>2012 by mike</copyright>
+    <description>Timbers Army chant guide. iPhone port of Android application by Highwater Labs - https://play.google.com/store/apps/details?id=com.fellin.timbersong	</description>
+    <copyright>2012 by Mike Pacific</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
