@@ -4,7 +4,7 @@ function ApplicationTabGroup(Window) {
 	
 	//create app tabs
 	var win1 = new Window('Chants', 'chants'),
-		win2 = new Window('Schedule', 'schedule');
+		win2 = new Window('2012 Schedule', 'schedule');
 	
 	var tab1 = Ti.UI.createTab({
 		title: 'Chants',

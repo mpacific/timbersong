@@ -67,6 +67,38 @@ function ApplicationWindow(title, key) {
 		
 		self.add(tableview);
 	}
+	else if(key == 'schedule') {
+		var schedulesTag = TS.xml.getElementsByTagName('schedules');
+		var schedulesEl = schedulesTag.item(0);
+		var schedules = schedulesEl.getElementsByTagName('schedule');
+		var sections = [];
+		
+		for(x = 0; x < schedules.length; x++) {
+			var schedule = schedules.item(x);
+
+			var section = Ti.UI.createTableViewSection({ headerTitle: schedule.getAttribute('label') });
+			
+			var items = schedule.getElementsByTagName('item');
+			for(y = 0; y < items.length; y++) {
+				var game = items.item(y);
+				var team = game.getElementsByTagName('team');
+				var theDate = game.getElementsByTagName('date');
+				
+				var dateObj = moment(theDate.item(0).getText());
+				
+				var teamRow = Ti.UI.createTableViewRow({ title: dateObj.format('M/D h:mm a') + ' - ' + team.item(0).getText() });
+				section.add(teamRow);
+			}
+
+			sections.push(section);
+		}
+		
+		var tableview = Titanium.UI.createTableView({
+			data: sections
+		});
+		
+		self.add(tableview);
+	}
 
 	return self;
 };
