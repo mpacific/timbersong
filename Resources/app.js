@@ -10,10 +10,22 @@
  *  
  */
 
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g,"");
+}
+String.prototype.ltrim = function() {
+	return this.replace(/^\s+/,"");
+}
+String.prototype.rtrim = function() {
+	return this.replace(/\s+$/,"");
+}
+
 //bootstrap and check dependencies
 if (Ti.version < 1.8 ) {
 	alert('Sorry - this application template requires Titanium Mobile SDK 1.8 or later');
 }
+
+var TS = {};
 
 // This is a single context application with mutliple windows in a stack
 (function() {
@@ -23,13 +35,18 @@ if (Ti.version < 1.8 ) {
 		height = Ti.Platform.displayCaps.platformHeight,
 		width = Ti.Platform.displayCaps.platformWidth;
 	
-	//considering tablet to have one dimension over 900px - this is imperfect, so you should feel free to decide
-	//yourself what you consider a tablet form factor for android
-	var isTablet = osname === 'ipad' || (osname === 'android' && (width > 899 || height > 899));
+	var xmlFile = Ti.Filesystem.getFile('xml/res/values/strings.xml');
+	var xmlStr = xmlFile.read().text;
+	TS.xml = Ti.XML.parseString(xmlStr);
 	
+	Ti.App.addEventListener('openURL', function(e){
+		Ti.Platform.openURL(e.url);
+	});
+
 	var Window;
 	Window = require('ui/handheld/ApplicationWindow');
-
+	
 	var ApplicationTabGroup = require('ui/common/ApplicationTabGroup');
-	new ApplicationTabGroup(Window).open();
+	TS.TabGroup = new ApplicationTabGroup(Window);
+	TS.TabGroup.open();
 })();
