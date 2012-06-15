@@ -37,7 +37,7 @@ var TS = {};
 		height = Ti.Platform.displayCaps.platformHeight,
 		width = Ti.Platform.displayCaps.platformWidth;
 	
-	var xmlFile = Ti.Filesystem.getFile('xml/res/values/strings.xml');
+	var xmlFile = Ti.Filesystem.getFile('xml/strings.xml');
 	var xmlStr = xmlFile.read().text;
 	TS.xml = Ti.XML.parseString(xmlStr);
 	
