@@ -7,10 +7,10 @@
         <target device="android">false</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <sdk-version>2.0.1.GA2</sdk-version>
+    <sdk-version>2.0.2.GA</sdk-version>
     <id>com.mpacific.timbersong</id>
     <name>TimberSong</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <publisher>Mike Pacific</publisher>
     <url>http://</url>
     <description>Timbers Army chant guide. iPhone port of Android application by Highwater Labs - https://play.google.com/store/apps/details?id=com.fellin.timbersong	</description>
